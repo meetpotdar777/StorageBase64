@@ -70,7 +70,7 @@ The system utilizes a hybrid logic for maximum efficiency:
 [](https://meet3333333333.wixstudio.com/my-site)
 
 \<p align="center"\>
-\<img src="[https://img.icons8.com/nolan/512/anime.png](https://www.google.com/search?q=https://img.icons8.com/nolan/512/anime.png)" width="200" title="StorageBase64 Neo-Anime"\>
+\<img src="https://img.sanishtech.com/u/45824c09fb740bd8a6b30d23bbdb04ef.png" alt="StorageBase"\>
 \</p\>
 
 -----
