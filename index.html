@@ -3,137 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StorageBase64 - High Efficiency Encoding</title>
+    <title>StorageBase64 - Neo-Anime Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 8px;
-        }-
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f1f1;
+        :root {
+            --neon-cyan: #00f2ff;
+            --neon-purple: #bc13fe;
+            --anime-bg: #0b0e14;
         }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--anime-bg);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(188, 19, 254, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.05) 0%, transparent 40%);
+        }
+
+        .tech-font { font-family: 'Rajdhani', sans-serif; }
+
+        .anime-card {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .anime-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--neon-purple), var(--neon-cyan));
+        }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 4px;
+            background: var(--neon-cyan);
+            border-radius: 10px;
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #555;
+
+        .neon-text {
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
         }
-        #mediaPreview {
-            max-height: 400px;
+
+        .btn-neon-purple {
+            background: linear-gradient(135deg, #7e22ce 0%, #bc13fe 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-neon-purple:hover {
+            box-shadow: 0 0 15px rgba(188, 19, 254, 0.6);
+            transform: translateY(-1px);
+        }
+
+        .cmd-display {
             background: #000;
+            color: var(--neon-cyan);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: 'ui-monospace', monospace;
+            font-size: 0.8rem;
+            border-left: 4px solid var(--neon-cyan);
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
+
+        input[type="checkbox"] {
+            accent-color: var(--neon-cyan);
         }
     </style>
 </head>
-<body class="bg-slate-100 min-h-screen text-slate-800 font-sans">
+<body class="min-h-screen text-slate-300 selection:bg-cyan-900 selection:text-white">
 
-    <div class="max-w-4xl mx-auto py-10 px-4">
+    <div class="max-w-3xl mx-auto py-12 px-6">
         <!-- Header -->
-        <header class="text-center mb-10">
-            <h1 class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-emerald-600 mb-2">StorageBase64</h1>
-            <p class="text-slate-500 font-medium">Advanced Media-to-String Compression & Storage System</p>
+        <header class="mb-12 border-b border-slate-800 pb-6 relative text-left">
+            <div class="absolute -top-4 -left-4 w-12 h-12 bg-cyan-500/10 blur-xl rounded-full"></div>
+            <h1 class="text-5xl font-black tech-font tracking-tighter text-white neon-text italic">
+                StorageBase64
+            </h1>
+            <p class="text-slate-500 text-[10px] font-bold uppercase tracking-[0.5em] mt-2 ml-1">High-Frequency Media Transcoder</p>
         </header>
 
-        <div class="grid grid-cols-1 gap-8">
+        <div class="space-y-8">
             
-            <!-- SECTION 1: ENCODER -->
-            <section class="bg-white p-8 rounded-3xl shadow-xl border border-slate-200 glass-card">
-                <div class="flex items-center justify-between mb-6">
-                    <div class="flex items-center gap-3 text-indigo-600">
-                        <div class="p-2 bg-indigo-100 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                            </svg>
-                        </div>
-                        <h2 class="text-2xl font-bold italic">Encoder Engine</h2>
-                    </div>
+            <!-- ENCODER -->
+            <section class="anime-card rounded-2xl p-8">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="h-1 bg-cyan-400 w-8"></div>
+                    <h2 class="text-lg font-bold tech-font uppercase tracking-widest text-white">Input Interface</h2>
                 </div>
                 
-                <div class="space-y-4 mb-6">
-                    <div class="flex flex-wrap gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                        <label class="flex items-center gap-2 cursor-pointer group">
-                            <input type="checkbox" id="optimizeImage" checked class="w-5 h-5 text-indigo-600 rounded-md focus:ring-indigo-500">
-                            <span class="text-sm font-semibold text-slate-600 group-hover:text-indigo-600">WebP Image (80%)</span>
+                <!-- FFmpeg Commands -->
+                <div class="mb-8 bg-black/40 p-5 rounded-xl border border-white/5">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[10px] font-black text-purple-400 uppercase tracking-widest">FFmpeg Command Lab</span>
+                        <div class="h-1 w-12 bg-purple-500/30 rounded"></div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <button onclick="generateCmd('av1')" class="bg-slate-800/50 hover:bg-slate-800 text-cyan-400 text-[10px] font-bold py-2 px-4 rounded-md border border-cyan-500/30 transition-all uppercase tracking-wider">
+                            Sync AV1
+                        </button>
+                        <button onclick="generateCmd('hevc')" class="bg-slate-800/50 hover:bg-slate-800 text-purple-400 text-[10px] font-bold py-2 px-4 rounded-md border border-purple-500/30 transition-all uppercase tracking-wider">
+                            Sync HEVC
+                        </button>
+                    </div>
+                    <div id="cmdDisplay" class="cmd-display hidden animate-pulse"></div>
+                </div>
+
+                <!-- Settings -->
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <label class="flex-1 flex items-center gap-3 cursor-pointer p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all border border-white/5">
+                            <input type="checkbox" id="optimizeImage" checked>
+                            <span class="text-[11px] font-bold text-slate-400 uppercase">WebP Core</span>
                         </label>
-                        <label class="flex items-center gap-2 cursor-pointer group">
-                            <input type="checkbox" id="simulateHevc" class="w-5 h-5 text-emerald-600 rounded-md focus:ring-emerald-500">
-                            <span class="text-sm font-semibold text-slate-600 group-hover:text-emerald-600">HEVC/AV1 Optimization</span>
+                        <label class="flex-1 flex items-center gap-3 cursor-pointer p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all border border-white/5">
+                            <input type="checkbox" id="simulateHevc">
+                            <span class="text-[11px] font-bold text-slate-400 uppercase">Advanced Bitrate</span>
                         </label>
                     </div>
 
-                    <input type="file" id="mediaFile" accept="video/*,image/*" 
-                        class="block w-full text-sm text-slate-500 file:mr-4 file:py-3 file:px-6 file:rounded-xl file:border-0 file:text-sm file:font-bold file:bg-indigo-600 file:text-white hover:file:bg-indigo-700 cursor-pointer transition-all"/>
+                    <div class="relative">
+                        <input type="file" id="mediaFile" accept="video/*,image/*" 
+                            class="block w-full text-[11px] text-slate-500 file:mr-4 file:py-2 file:px-6 file:rounded file:border-0 file:text-[10px] file:font-black file:uppercase file:bg-cyan-500 file:text-black hover:file:bg-cyan-400 cursor-pointer transition-all bg-black/30 rounded-lg border border-white/10 p-2"/>
+                    </div>
                 </div>
 
-                <div id="encoderStatus" class="hidden mb-4 p-4 bg-indigo-600 text-white rounded-xl text-sm font-bold flex items-center gap-3">
-                    <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3balanced 7.938l3-2.647z"></path></svg>
-                    Processing Stream... Applying Codecs
+                <div id="encoderStatus" class="hidden my-6 p-3 bg-cyan-900/30 border border-cyan-500/50 text-cyan-400 rounded-lg text-[10px] font-bold flex items-center gap-3 uppercase tracking-tighter">
+                    <div class="w-2 h-2 bg-cyan-400 rounded-full animate-ping"></div>
+                    System Encoding Active...
                 </div>
 
-                <div class="relative group">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-emerald-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
-                    <textarea id="base64Output" readonly placeholder="Base64 output will appear here..."
-                        class="relative w-full h-48 p-4 bg-slate-900 text-indigo-300 font-mono text-[10px] rounded-xl border border-slate-800 custom-scrollbar focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
+                <div class="mt-8 relative">
+                    <textarea id="base64Output" readonly placeholder="Output buffer empty..."
+                        class="w-full h-40 p-5 bg-black/60 text-cyan-500/80 font-mono text-[9px] rounded-xl border border-white/5 custom-scrollbar focus:ring-1 focus:ring-cyan-500 outline-none transition-all"></textarea>
                     
-                    <button onclick="copyToClipboard()" id="copyBtn" class="absolute top-4 right-4 bg-indigo-500 hover:bg-indigo-400 text-white px-4 py-2 rounded-lg text-xs font-bold shadow-lg transition-all active:scale-95">
-                        COPY STRING
+                    <button onclick="copyToClipboard()" id="copyBtn" class="absolute bottom-4 right-4 btn-neon-purple text-white px-6 py-2 rounded font-black text-[10px] uppercase tracking-tighter shadow-xl">
+                        Copy Fragment
                     </button>
                 </div>
 
-                <!-- Storage Stats -->
-                <div id="stats" class="mt-6 grid grid-cols-2 gap-4 hidden">
-                    <div class="p-4 bg-slate-50 rounded-2xl text-center border border-slate-100">
-                        <span class="block text-[10px] text-slate-400 uppercase tracking-widest font-black mb-1">Standard Binary</span>
-                        <span id="origSize" class="text-xl font-black text-slate-700">0 MB</span>
+                <!-- Metrics -->
+                <div id="stats" class="mt-6 flex gap-4 hidden">
+                    <div class="flex-1 p-3 bg-black/40 rounded-lg border-l-2 border-slate-500">
+                        <span class="block text-[8px] text-slate-500 uppercase font-bold mb-1">Source Size</span>
+                        <span id="origSize" class="text-xs font-bold text-slate-300">0 MB</span>
                     </div>
-                    <div class="p-4 bg-emerald-50 rounded-2xl text-center border border-emerald-100">
-                        <span class="block text-[10px] text-emerald-500 uppercase tracking-widest font-black mb-1">Base64 String</span>
-                        <span id="b64Size" class="text-xl font-black text-emerald-600">0 MB</span>
+                    <div class="flex-1 p-3 bg-black/40 rounded-lg border-l-2 border-purple-500">
+                        <span class="block text-[8px] text-purple-400 uppercase font-bold mb-1">String Size</span>
+                        <span id="b64Size" class="text-xs font-bold text-purple-300">0 MB</span>
                     </div>
                 </div>
-                <div id="savingsTip" class="mt-4 p-3 bg-emerald-600 text-white rounded-xl text-center text-xs font-bold hidden"></div>
             </section>
 
-            <!-- SECTION 2: DECODER -->
-            <section class="bg-white p-8 rounded-3xl shadow-xl border border-slate-200 glass-card">
-                <div class="flex items-center gap-3 mb-6 text-emerald-600">
-                    <div class="p-2 bg-emerald-100 rounded-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                        </svg>
-                    </div>
-                    <h2 class="text-2xl font-bold italic">Decoder Engine</h2>
+            <!-- DECODER -->
+            <section class="anime-card rounded-2xl p-8">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="h-1 bg-purple-500 w-8"></div>
+                    <h2 class="text-lg font-bold tech-font uppercase tracking-widest text-white">Decoder Core</h2>
                 </div>
 
-                <textarea id="base64Input" placeholder="Paste your StorageBase64 string here (WebP, HEVC, AV1 supported headers)..."
-                    class="w-full h-32 p-4 bg-white border-2 border-slate-100 rounded-2xl mb-4 focus:border-emerald-500 outline-none transition-all font-mono text-xs"></textarea>
+                <textarea id="base64Input" placeholder="Awaiting data string input..."
+                    class="w-full h-20 p-4 bg-black/40 border border-white/10 rounded-xl mb-4 focus:border-purple-500 outline-none transition-all font-mono text-[9px] text-purple-300/70"></textarea>
                 
-                <button onclick="playBase64()" class="w-full bg-slate-900 hover:bg-black text-white font-black py-4 rounded-2xl transition-all shadow-xl active:scale-[0.98] tracking-widest">
-                    RECONSTRUCT DATA
+                <button onclick="playBase64()" class="w-full btn-neon-purple text-white font-black py-4 rounded-xl transition-all shadow-lg text-[11px] uppercase tracking-[0.2em]">
+                    EXECUTE RECONSTRUCTION
                 </button>
 
-                <div id="mediaDisplayContainer" class="mt-8 hidden animate-in fade-in zoom-in duration-300">
+                <div id="mediaDisplayContainer" class="mt-8 hidden">
                     <div id="videoWrapper" class="hidden">
-                        <video id="videoPreview" controls class="w-full rounded-2xl shadow-2xl border-4 border-white"></video>
+                        <video id="videoPreview" controls class="w-full rounded-xl border border-white/10 shadow-2xl bg-black"></video>
                     </div>
                     <div id="imageWrapper" class="hidden">
-                        <img id="imagePreview" class="mx-auto max-w-full rounded-2xl shadow-2xl border-4 border-white">
+                        <img id="imagePreview" class="mx-auto max-w-full rounded-xl border border-white/10 shadow-2xl">
                     </div>
-                    <button onclick="clearMedia()" class="mt-6 mx-auto block text-xs font-bold text-slate-400 hover:text-red-500 uppercase tracking-tighter">Destroy Session Data</button>
+                    <button onclick="clearMedia()" class="mt-6 mx-auto block text-[9px] font-black text-slate-600 hover:text-red-500 uppercase tracking-widest transition-colors">Wipe Preview Buffer</button>
                 </div>
             </section>
         </div>
 
-        <footer class="mt-12 text-center text-slate-400 text-[10px] uppercase tracking-[0.2em] font-bold">
-            Project: StorageBase64 / Build: 2.5.HEVC-WebP
+        <footer class="mt-16 text-center">
+            <p class="text-[9px] font-bold text-slate-600 uppercase tracking-[0.5em]">
+                System // <span class="text-cyan-900">StorageBase64</span> // Protocol v2.8-Neo
+            </p>
         </footer>
     </div>
 
-    <!-- Hidden Canvas for Image Processing -->
     <canvas id="processCanvas" class="hidden"></canvas>
 
     <script>
@@ -147,96 +207,79 @@
         const imageWrapper = document.getElementById('imageWrapper');
         const encoderStatus = document.getElementById('encoderStatus');
         const statsArea = document.getElementById('stats');
-        const optimizeImage = document.getElementById('optimizeImage');
-        const simulateHevc = document.getElementById('simulateHevc');
-        const savingsTip = document.getElementById('savingsTip');
+        const cmdDisplay = document.getElementById('cmdDisplay');
         const canvas = document.getElementById('processCanvas');
         const ctx = canvas.getContext('2d');
 
-        // Encoding Logic
+        function generateCmd(type) {
+            const fileName = mediaFileInput.files[0] ? mediaFileInput.files[0].name : "target.mp4";
+            let cmd = "";
+            if (type === 'av1') {
+                cmd = `ffmpeg -i "${fileName}" -c:v libaom-av1 -crf 30 -b:v 0 -strict experimental "output_av1.mp4"`;
+            } else {
+                cmd = `ffmpeg -i "${fileName}" -c:v libx265 -crf 28 "output_hevc.mp4"`;
+            }
+            cmdDisplay.textContent = cmd;
+            cmdDisplay.classList.remove('hidden');
+        }
+
         mediaFileInput.addEventListener('change', async function(e) {
             const file = e.target.files[0];
             if (!file) return;
+            
+            if (!cmdDisplay.classList.contains('hidden')) {
+                generateCmd(cmdDisplay.textContent.includes('av1') ? 'av1' : 'hevc');
+            }
 
             encoderStatus.classList.remove('hidden');
             base64Output.value = '';
             statsArea.classList.add('hidden');
-            savingsTip.classList.add('hidden');
 
-            const isImage = file.type.startsWith('image/');
-            const isVideo = file.type.startsWith('video/');
-
-            // SIMULATION Logic
-            if (isVideo && simulateHevc.checked) {
-                // Since true HEVC encoding isn't built into JS, we provide context for the user.
-                console.log("HEVC container simulation active.");
-            }
-
-            if (isImage && optimizeImage.checked) {
-                // Image WebP logic
+            if (file.type.startsWith('image/') && document.getElementById('optimizeImage').checked) {
                 const img = new Image();
                 img.src = URL.createObjectURL(file);
                 img.onload = () => {
                     canvas.width = img.width;
                     canvas.height = img.height;
                     ctx.drawImage(img, 0, 0);
-                    
-                    // WebP conversion (The "H.265" of images)
                     const webpBase64 = canvas.toDataURL('image/webp', 0.8);
-                    finishEncoding(file.size, webpBase64, "WebP (High Efficiency)");
+                    finishEncoding(file.size, webpBase64);
                     URL.revokeObjectURL(img.src);
                 };
             } else {
-                // Standard Reader
                 const reader = new FileReader();
-                reader.onload = (event) => {
-                    const method = isVideo && simulateHevc.checked ? "HEVC Container" : "Standard Binary";
-                    finishEncoding(file.size, event.target.result, method);
-                };
+                reader.onload = (event) => finishEncoding(file.size, event.target.result);
                 reader.readAsDataURL(file);
             }
         });
 
-        function finishEncoding(origByteSize, resultBase64, method) {
+        function finishEncoding(origByteSize, resultBase64) {
             base64Output.value = resultBase64;
-            
             const originalSizeMB = (origByteSize / (1024 * 1024)).toFixed(2);
             const b64SizeMB = (resultBase64.length / (1024 * 1024)).toFixed(2);
-            
             document.getElementById('origSize').textContent = originalSizeMB + ' MB';
             document.getElementById('b64Size').textContent = b64SizeMB + ' MB';
-            
             encoderStatus.classList.add('hidden');
             statsArea.classList.remove('hidden');
-
-            savingsTip.textContent = `COMPRESSION APPLIED: ${method}`;
-            savingsTip.classList.remove('hidden');
         }
 
-        // Decoding Logic
         function playBase64() {
             const data = base64Input.value.trim();
             if (!data) return;
-
             mediaDisplayContainer.classList.remove('hidden');
             videoWrapper.classList.add('hidden');
             imageWrapper.classList.add('hidden');
-
             if (data.startsWith('data:video')) {
                 videoPreview.src = data;
                 videoWrapper.classList.remove('hidden');
-                videoPreview.play().catch(e => {
-                    console.error("Playback failed", e);
-                });
+                videoPreview.play().catch(e => console.error(e));
             } else if (data.startsWith('data:image')) {
                 imagePreview.src = data;
                 imageWrapper.classList.remove('hidden');
             }
-            
             mediaDisplayContainer.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Utilities
         function copyToClipboard() {
             const text = base64Output.value;
             if (!text) return;
@@ -246,14 +289,9 @@
             textArea.select();
             document.execCommand('copy');
             document.body.removeChild(textArea);
-            
             const btn = document.getElementById('copyBtn');
-            btn.textContent = 'COPIED!';
-            btn.classList.replace('bg-indigo-500', 'bg-emerald-500');
-            setTimeout(() => {
-                btn.textContent = 'COPY STRING';
-                btn.classList.replace('bg-emerald-500', 'bg-indigo-500');
-            }, 2000);
+            btn.textContent = 'DONE';
+            setTimeout(() => btn.textContent = 'Copy Fragment', 2000);
         }
 
         function clearMedia() {
