@@ -1,4 +1,4 @@
-# 🌌 StorageBase64: Neo-Anime Media Transcoder
+# 🌌 StorageBase64
 
 **StorageBase64** is a high-frequency media transcoder designed to bridge the gap between high-performance local video encoding and lightweight web-based storage. By utilizing local **FFmpeg** power alongside browser-based **Base64 stringification**, this tool allows you to store and share media as compressed text fragments.
 
