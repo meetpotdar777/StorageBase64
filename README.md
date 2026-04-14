@@ -66,12 +66,14 @@ The system utilizes a hybrid logic for maximum efficiency:
 **Meet Potdar**
 *Full-Stack Developer*
 
-[](https://www.google.com/search?q=https://www.linkedin.com/in/meet-potdar-04b12b290)
-[](https://meet3333333333.wixstudio.com/my-site)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/meet-potdar-04b12b290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
+[![Portfolio](https://img.shields.io/badge/Portfolio-%23000000.svg?style=flat&logo=firefox&logoColor=white)](https://meet3333333333.wixstudio.com/my-site)
 
-\<p align="center"\>
-\<img src="https://img.sanishtech.com/u/45824c09fb740bd8a6b30d23bbdb04ef.png" alt="StorageBase"\>
-\</p\>
+
+<div style="text-align: center;">
+  <img src="https://img.sanishtech.com/u/45824c09fb740bd8a6b30d23bbdb04ef.png" alt="StorageBase" width="900">
+  
+  <div style="height: 100px;"></div> 
 
 -----
 
